@@ -1,2 +1,3 @@
 # drmaric.github.io
-DrMariC Website
+
+Website of Dr Mari Chikvaidze
