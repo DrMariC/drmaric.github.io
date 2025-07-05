@@ -55,7 +55,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
+      text-align: left;
     }
 
     .content {
@@ -72,9 +72,10 @@
     }
 
     p {
-      font-size: 1.2em;
-      color: #555;
+      font-size: 1.1em;
+      color: #444;
       margin-bottom: 1em;
+      line-height: 1.6em;
     }
 
     .emoji {
@@ -120,9 +121,13 @@
   <main>
     <div class="content" id="content">
       <h1>Author Page</h1>
-      <p>Dr. Mari Chikvaidze’s author page is currently under construction.</p>
-      <div class="emoji">🚧✍️</div>
-      <p><strong>Stay tuned! To be published soon.</strong></p>
+      <p>მალე ჩემი სადებიუტო წიგნი - „თვითმარქვია“ - გამოიცემა.</p>
+      <p><strong>თვითმარქვია</strong></p>
+      <p><strong>მარი კვატია</strong></p>
+      <p>"თვითმარქვია" ოჯახური საგაა, რომელიც სპარსეთიდან, ანატოლიიდან, აღმოსავლეთ ევროპიდან და საქართველოს პატარა სოფლებიდან, ადამიანების დიდ ქალაქებში მიგრაციისა და ასიმილაციის შესახებ მოგვითხრობს. თითოეული პერსონაჟის მოგზაურობა მოწმობს ადამიანის შინაგანი სამყაროს ადაპტაციისა და სულიერი განვითარების შესაძლებლობაზე, თუნდაც საკუთარ თავში არსებული გამუდმებული და შეუპოვარი ეჭვის პირობებში. ტრიუმფებით თუ ფიასკოებით სავსე ეს ისტორიები გვახსენებს, რომ ადამიანისთვის იდენტობისა და მიმღებლობის ძიება უნივერსალურია და ხშირად სცდება გეოგრაფიულ საზღვრებს. ეს ძიება კიდევ უფრო მძაფრად წარმოაჩენს თაობათაშორის ტრავმებს, რომლებიც ამ თხზულების ყველა გმირს აერთიანებს.</p>
+      <p>რედაქტორი: კახა ჭაბაშვილი<br>
+      გამომცემლობა: ა ზ რ ი</p>
+      <p><strong>წინასწარი შესყიდვის სურვილის შემთხვევაში, შემეხმიანეთ!</strong></p>
       <img src="page001.png" alt="Author page preview" class="author-image">
     </div>
   </main>
@@ -134,23 +139,25 @@
     const tabData = {
       author: {
         title: 'Author Page',
-        text: 'Dr. Mari Chikvaidze’s author page is currently under construction.',
-        emoji: '🚧✍️',
-        extra: '<p><strong>Stay tuned! To be published soon.</strong></p>',
+        text: `
+          <p>მალე ჩემი სადებიუტო წიგნი - „თვითმარქვია“ - გამოიცემა.</p>
+          <p><strong>თვითმარქვია</strong></p>
+          <p><strong>მარი კვატია</strong></p>
+          <p>"თვითმარქვია" ოჯახური საგაა, რომელიც სპარსეთიდან, ანატოლიიდან, აღმოსავლეთ ევროპიდან და საქართველოს პატარა სოფლებიდან, ადამიანების დიდ ქალაქებში მიგრაციისა და ასიმილაციის შესახებ მოგვითხრობს. თითოეული პერსონაჟის მოგზაურობა მოწმობს ადამიანის შინაგანი სამყაროს ადაპტაციისა და სულიერი განვითარების შესაძლებლობაზე, თუნდაც საკუთარ თავში არსებული გამუდმებული და შეუპოვარი ეჭვის პირობებში. ტრიუმფებით თუ ფიასკოებით სავსე ეს ისტორიები გვახსენებს, რომ ადამიანისთვის იდენტობისა და მიმღებლობის ძიება უნივერსალურია და ხშირად სცდება გეოგრაფიულ საზღვრებს. ეს ძიება კიდევ უფრო მძაფრად წარმოაჩენს თაობათაშორის ტრავმებს, რომლებიც ამ თხზულების ყველა გმირს აერთიანებს.</p>
+          <p>რედაქტორი: კახა ჭაბაშვილი<br>გამომცემლობა: ა ზ რ ი</p>
+          <p><strong>წინასწარი შესყიდვის სურვილის შემთხვევაში, შემეხმიანეთ!</strong></p>
+        `,
+        emoji: '',
         image: '<img src="page001.png" alt="Author page preview" class="author-image">'
       },
       educator: {
         title: 'Educator Page',
-        text: 'Dr. Mari Chikvaidze’s educator page is currently under construction.',
-        emoji: '🚧📘',
-        extra: '',
+        text: '<p>Dr. Mari Chikvaidze’s educator page is currently under construction.</p><div class="emoji">🚧📘</div>',
         image: ''
       },
       contact: {
         title: 'Contact Page',
-        text: 'You can contact Dr. Mari Chikvaidze at: [coming soon]',
-        emoji: '📬',
-        extra: '',
+        text: '<p>You can contact Dr. Mari Chikvaidze at: [coming soon]</p><div class="emoji">📬</div>',
         image: ''
       }
     };
@@ -164,9 +171,7 @@
         const data = tabData[key];
         content.innerHTML = `
           <h1>${data.title}</h1>
-          <p>${data.text}</p>
-          <div class="emoji">${data.emoji}</div>
-          ${data.extra}
+          ${data.text}
           ${data.image}
         `;
       });
