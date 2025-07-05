@@ -59,7 +59,7 @@
     }
 
     .content {
-      max-width: 600px;
+      max-width: 700px;
       background-color: #fff;
       padding: 2em;
       border-radius: 10px;
@@ -79,6 +79,14 @@
     .emoji {
       font-size: 2em;
       margin-top: 1em;
+    }
+
+    img.author-image {
+      margin-top: 1.5em;
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     @media (max-width: 600px) {
@@ -113,6 +121,7 @@
       <h1>Author Page</h1>
       <p>Dr. Mari Chikvaidze’s author page is currently under construction.</p>
       <div class="emoji">🚧✍️</div>
+      <img src="page001.png" alt="Author page preview" class="author-image">
     </div>
   </main>
 
@@ -124,17 +133,20 @@
       author: {
         title: 'Author Page',
         text: 'Dr. Mari Chikvaidze’s author page is currently under construction.',
-        emoji: '🚧✍️'
+        emoji: '🚧✍️',
+        image: '<img src="page001.png" alt="Author page preview" class="author-image">'
       },
       educator: {
         title: 'Educator Page',
         text: 'Dr. Mari Chikvaidze’s educator page is currently under construction.',
-        emoji: '🚧📘'
+        emoji: '🚧📘',
+        image: ''
       },
       contact: {
         title: 'Contact Page',
         text: 'You can contact Dr. Mari Chikvaidze at: [coming soon]',
-        emoji: '📬'
+        emoji: '📬',
+        image: ''
       }
     };
 
@@ -149,6 +161,7 @@
           <h1>${data.title}</h1>
           <p>${data.text}</p>
           <div class="emoji">${data.emoji}</div>
+          ${data.image}
         `;
       });
     });
