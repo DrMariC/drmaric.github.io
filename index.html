@@ -74,11 +74,12 @@
     p {
       font-size: 1.2em;
       color: #555;
+      margin-bottom: 1em;
     }
 
     .emoji {
       font-size: 2em;
-      margin-top: 1em;
+      margin-top: 0.5em;
     }
 
     img.author-image {
@@ -121,6 +122,7 @@
       <h1>Author Page</h1>
       <p>Dr. Mari Chikvaidze’s author page is currently under construction.</p>
       <div class="emoji">🚧✍️</div>
+      <p><strong>Stay tuned! To be published soon.</strong></p>
       <img src="page001.png" alt="Author page preview" class="author-image">
     </div>
   </main>
@@ -134,18 +136,21 @@
         title: 'Author Page',
         text: 'Dr. Mari Chikvaidze’s author page is currently under construction.',
         emoji: '🚧✍️',
+        extra: '<p><strong>Stay tuned! To be published soon.</strong></p>',
         image: '<img src="page001.png" alt="Author page preview" class="author-image">'
       },
       educator: {
         title: 'Educator Page',
         text: 'Dr. Mari Chikvaidze’s educator page is currently under construction.',
         emoji: '🚧📘',
+        extra: '',
         image: ''
       },
       contact: {
         title: 'Contact Page',
         text: 'You can contact Dr. Mari Chikvaidze at: [coming soon]',
         emoji: '📬',
+        extra: '',
         image: ''
       }
     };
@@ -161,6 +166,7 @@
           <h1>${data.title}</h1>
           <p>${data.text}</p>
           <div class="emoji">${data.emoji}</div>
+          ${data.extra}
           ${data.image}
         `;
       });
