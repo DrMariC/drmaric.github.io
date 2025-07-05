@@ -42,11 +42,12 @@
       font-size: 1em;
       position: relative;
       padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
     }
 
     nav a:hover,
     nav a.active {
-      border-bottom: 2px solid #ffcc00;
+      border-bottom-color: #ffcc00;
     }
 
     main {
@@ -166,7 +167,6 @@
       }
     }
 
-    // Load default (author)
     window.addEventListener('DOMContentLoaded', () => loadTab('author'));
 
     tabs.forEach(tab => {
