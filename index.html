@@ -66,6 +66,7 @@
     }
 
     #tab-author:checked ~ main #author,
+    #tab-materials:checked ~ main #materials,
     #tab-educator:checked ~ main #educator,
     #tab-contact:checked ~ main #contact {
       display: block;
@@ -111,6 +112,7 @@
 <body>
   <!-- Tab controls -->
   <input type="radio" name="tab" id="tab-author" checked>
+  <input type="radio" name="tab" id="tab-materials">
   <input type="radio" name="tab" id="tab-educator">
   <input type="radio" name="tab" id="tab-contact">
 
@@ -118,6 +120,7 @@
     <div class="logo">Dr. Mari Chikvaidze</div>
     <nav>
       <label for="tab-author">Author</label>
+      <label for="tab-materials">Materials</label>
       <label for="tab-educator">Educator</label>
       <label for="tab-contact">Contact</label>
     </nav>
@@ -135,6 +138,16 @@
         <p>გამომცემლობა: აზრი</p>
         <p>ISBN 978-9941-8-6674-6</p>
         <img src="page001.png" alt="Author page preview">
+      </section>
+
+      <section id="materials" class="tab-content">
+        <h1>Supporting Materials</h1>
+        <p class="centered">Below are additional materials related to the book "თვითმარქვია".</p>
+        <img src="material_01.jpg" alt="Material 1">
+        <img src="material_02.jpg" alt="Material 2">
+        <img src="material_03.jpg" alt="Material 3">
+        <img src="material_04.jpg" alt="Material 4">
+        <img src="material_05.jpg" alt="Material 5">
       </section>
 
       <section id="educator" class="tab-content">
