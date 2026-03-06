@@ -17,7 +17,12 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      font-family: sans-serif;
     }
+
+    /* Bilingual logic */
+    body.lang-ka .lang-en { display: none; }
+    body.lang-en .lang-ka { display: none; }
 
     header {
       background: #004466;
@@ -25,11 +30,17 @@
       padding: 1em;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
     }
 
     .logo {
       font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
     }
 
     nav label {
@@ -45,6 +56,30 @@
 
     input[type="radio"] {
       display: none;
+    }
+
+    /* Language Toggle Styles */
+    .lang-toggle {
+      margin-left: 2em;
+      display: flex;
+      gap: 0.5em;
+    }
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid white;
+      padding: 2px 8px;
+      cursor: pointer;
+      font-size: 0.8em;
+      border-radius: 4px;
+    }
+
+    .lang-btn.active {
+      background: #ffcc00;
+      color: #004466;
+      border-color: #ffcc00;
+      font-weight: bold;
     }
 
     main {
@@ -101,15 +136,25 @@
       header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 1em;
+      }
+
+      nav {
+        flex-wrap: wrap;
       }
 
       nav label {
         margin: 0.5em 1em 0 0;
       }
+
+      .lang-toggle {
+        margin-left: 0;
+        margin-top: 0.5em;
+      }
     }
   </style>
 </head>
-<body>
+<body class="lang-ka">
   <!-- Tab controls -->
   <input type="radio" name="tab" id="tab-author" checked>
   <input type="radio" name="tab" id="tab-materials">
@@ -119,10 +164,27 @@
   <header>
     <div class="logo">Dr. Mari Chikvaidze</div>
     <nav>
-      <label for="tab-author">Author</label>
-      <label for="tab-materials">Materials</label>
-      <label for="tab-educator">Educator</label>
-      <label for="tab-contact">Contact</label>
+      <label for="tab-author">
+        <span class="lang-en">Author</span>
+        <span class="lang-ka">ავტორი</span>
+      </label>
+      <label for="tab-materials">
+        <span class="lang-en">Materials</span>
+        <span class="lang-ka">მასალები</span>
+      </label>
+      <label for="tab-educator">
+        <span class="lang-en">Educator</span>
+        <span class="lang-ka">განმანათლებელი</span>
+      </label>
+      <label for="tab-contact">
+        <span class="lang-en">Contact</span>
+        <span class="lang-ka">კონტაქტი</span>
+      </label>
+
+      <div class="lang-toggle">
+        <button class="lang-btn" id="btn-ka" onclick="setLanguage('ka')">KA</button>
+        <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+      </div>
     </nav>
   </header>
 
@@ -130,19 +192,39 @@
     <div class="content">
       <section id="author" class="tab-content">
         <img src="author.jpg" alt="Photo of the author">
-        <p>მალე ჩემი სადებიუტო წიგნი - „თვითმარქვია“ - გამოიცემა.</p>
-        <p class="centered"><strong>თვითმარქვია</strong></p>
-        <p class="centered"><strong>მარი კვატია</strong></p>
-        <p class="justified">"თვითმარქვია" ოჯახური საგაა, რომელიც სპარსეთიდან, ანატოლიიდან, აღმოსავლეთ ევროპიდან და საქართველოს პატარა სოფლებიდან, ადამიანების დიდ ქალაქებში მიგრაციისა და ასიმილაციის შესახებ მოგვითხრობს. თითოეული პერსონაჟის მოგზაურობა მოწმობს ადამიანის შინაგანი სამყაროს ადაპტაციისა და სულიერი განვითარების შესაძლებლობაზე, თუნდაც საკუთარ თავში არსებული გამუდმებული და შეუპოვარი ეჭვის პირობებში. ტრიუმფებით თუ ფიასკოებით სავსე ეს ისტორიები გვახსენებს, რომ ადამიანისთვის იდენტობისა და მიმღებლობის ძიება უნივერსალურია და ხშირად სცდება გეოგრაფიულ საზღვრებს. ეს ძიება კიდევ უფრო მძაფრად წარმოაჩენს თაობათაშორის ტრავმებს, რომლებიც ამ თხზულების ყველა გმირს აერთიანებს.</p>
-        <p>რედაქტორი: კახა ჭაბაშვილი</p>
-        <p>გამომცემლობა: აზრი</p>
+        
+        <!-- Author Section (Bilingual) -->
+        <div class="lang-ka">
+          <p>მალე ჩემი სადებიუტო წიგნი - „თვითმარქვია“ - გამოიცემა.</p>
+          <p class="centered"><strong>თვითმარქვია</strong></p>
+          <p class="centered"><strong>მარი კვატია</strong></p>
+          <p class="justified">"თვითმარქვია" ოჯახური საგაა, რომელიც სპარსეთიდან, ანატოლიიდან, აღმოსავლეთ ევროპიდან და საქართველოს პატარა სოფლებიდან, ადამიანების დიდ ქალაქებში მიგრაციისა და ასიმილაციის შესახებ მოგვითხრობს. თითოეული პერსონაჟის მოგზაურობა მოწმობს ადამიანის შინაგანი სამყაროს ადაპტაციისა და სულიერი განვითარების შესაძლებლობაზე, თუნდაც საკუთარ თავში არსებული გამუდმებული და შეუპოვარი ეჭვის პირობებში. ტრიუმფებით თუ ფიასკოებით სავსე ეს ისტორიები გვახსენებს, რომ ადამიანისთვის იდენტობისა და მიმღებლობის ძიება უნივერსალურია და ხშირად სცდება გეოგრაფიულ საზღვრებს. ეს ძიება კიდევ უფრო მძაფრად წარმოაჩენს თაობათაშორის ტრავმებს, რომლებიც ამ თხზულების ყველა გმირს აერთიანებს.</p>
+          <p>რედაქტორი: კახა ჭაბაშვილი</p>
+          <p>გამომცემლობა: აზრი</p>
+        </div>
+
+        <div class="lang-en">
+          <p>My debut book - "The Imposter" - will be published soon.</p>
+          <p class="centered"><strong>The Imposter</strong></p>
+          <p class="centered"><strong>Mari Kvatia</strong></p>
+          <p class="justified">"The Imposter" is a family saga that chronicles the migration and assimilation of people from Persia, Anatolia, Eastern Europe, and small Georgian villages into large cities. The journey of each character testifies to the possibility of adapting the inner world and spiritual development, even under conditions of constant and persistent self-doubt. These stories, full of triumphs or fiascos, remind us that the human search for identity and acceptance is universal and often transcends geographical boundaries. This search even more vividly highlights the intergenerational traumas that unite all the characters of this work.</p>
+          <p>Editor: Kakha Chabashvili</p>
+          <p>Publisher: Azri</p>
+        </div>
+
         <p>ISBN 978-9941-8-6674-6</p>
         <img src="cover_english.png" alt="Book cover">
       </section>
 
       <section id="materials" class="tab-content">
-        <h1>Supporting Materials</h1>
-        <p class="centered">Below are additional materials related to the book "The Imposter".</p>
+        <h1>
+          <span class="lang-en">Supporting Materials</span>
+          <span class="lang-ka">დამხმარე მასალები</span>
+        </h1>
+        <p class="centered">
+          <span class="lang-en">Below are additional materials related to the book "The Imposter".</span>
+          <span class="lang-ka">ქვემოთ მოცემულია წიგნთან „თვითმარქვია“ დაკავშირებული დამატებითი მასალები.</span>
+        </p>
         <img src="material_01.png" alt="Material 01">
         <img src="material_02.png" alt="Material 02">
         <img src="material_03.png" alt="Material 03">
@@ -154,17 +236,46 @@
       </section>
 
       <section id="educator" class="tab-content">
-        <h1>Educator Page</h1>
-        <p>Dr. Mari Chikvaidze’s educator page is currently under construction.</p>
+        <h1>
+          <span class="lang-en">Educator Page</span>
+          <span class="lang-ka">განმანათლებლის გვერდი</span>
+        </h1>
+        <p>
+          <span class="lang-en">Dr. Mari Chikvaidze’s educator page is currently under construction.</span>
+          <span class="lang-ka">დოქტორ მარი ჩიკვაიძის განმანათლებლის გვერდი ამჟამად მზადების პროცესშია.</span>
+        </p>
         <div class="emoji">🚧📘</div>
       </section>
 
       <section id="contact" class="tab-content">
-        <h1>Contact Page</h1>
-        <p>You can contact Dr. Mari Chikvaidze at: [coming soon]</p>
+        <h1>
+          <span class="lang-en">Contact Page</span>
+          <span class="lang-ka">საკონტაქტო გვერდი</span>
+        </h1>
+        <p>
+          <span class="lang-en">You can contact Dr. Mari Chikvaidze at: [coming soon]</span>
+          <span class="lang-ka">შეგიძლიათ დაუკავშირდეთ დოქტორ მარი ჩიკვაიძეს: [მალე]</span>
+        </p>
         <div class="emoji">📬</div>
       </section>
     </div>
   </main>
+
+  <script>
+    function setLanguage(lang) {
+      document.body.className = 'lang-' + lang;
+      
+      // Update active button state
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('btn-' + lang).classList.add('active');
+      
+      // Save preference
+      localStorage.setItem('preferredLang', lang);
+    }
+
+    // Initialize from storage or default to KA
+    const savedLang = localStorage.getItem('preferredLang') || 'ka';
+    setLanguage(savedLang);
+  </script>
 </body>
 </html>
